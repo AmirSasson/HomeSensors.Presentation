@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HomeSensors.Presentation.Contracts;
 
 namespace HomeSensors.Presentation.Services
 {
@@ -15,6 +16,11 @@ namespace HomeSensors.Presentation.Services
 
             //UriFactory.
             //client.ReadDocumentAsync()
+        }
+
+        public IEnumerable<SensorData<double>> GetSnapshot()
+        {
+            throw new NotImplementedException();
         }
     }
 }

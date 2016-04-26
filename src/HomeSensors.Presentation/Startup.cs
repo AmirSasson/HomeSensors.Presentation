@@ -13,6 +13,7 @@ using Microsoft.AspNet.StaticFiles;
 using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.AspNet.FileProviders;
 using System.IO;
+using Newtonsoft.Json.Serialization;
 
 namespace HomeSensors.Presentation
 {
@@ -22,9 +23,12 @@ namespace HomeSensors.Presentation
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore();
+            var mvc = services.AddMvcCore();
+            mvc.AddJsonFormatters(options => options.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
-            services.AddSingleton<ISensorsService, DocumentDBSensorService>();
+            //services.AddSingleton<ISensorsService, DocumentDBSensorService>();
+            services.AddSingleton<ISensorsService, MockSensorService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,8 +39,8 @@ namespace HomeSensors.Presentation
             {
                 logFac.AddConsole();
             }
-            
 
+            app.UseMvc();
             app.Use(async (context, next) =>
             {
                 var log = logFac.CreateLogger(context.Request.Path);
@@ -59,7 +63,7 @@ namespace HomeSensors.Presentation
             app.UseStaticFiles(new StaticFileOptions()
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(appEnv.ApplicationBasePath, "node_modules")),
-                RequestPath = new PathString("/node_modules"),                 
+                RequestPath = new PathString("/node_modules"),
             });
 
         }
