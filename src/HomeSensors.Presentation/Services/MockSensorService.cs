@@ -12,22 +12,36 @@ namespace HomeSensors.Presentation.Services
         Dictionary<Guid, Sensor> _sensors;
         public MockSensorService()
         {
-            var s1 = new Sensor() { Desciption = "test1", Id = Guid.NewGuid(), Status = SensorStatus.Active };
-            var s2 = new Sensor() { Desciption = "test1", Id = Guid.NewGuid(), Status = SensorStatus.Active };
-            _sensors = new Dictionary<Guid, Sensor>
+            _sensors = new Dictionary<Guid, Sensor>();
+            for (int i = 0; i < 5; i++)
             {
-                {s1.Id,  s1},
-                {s2.Id, s2 }
-            };          
+                var s = new Sensor() { Description = $"Sensor {i}", Id = Guid.NewGuid(), Status = SensorStatus.Active, SensorType = SensorTypes.Humidity };
+                _sensors[s.Id] = s;
+
+            }
         }
+        //    _sensors = new Dictionary<Guid, Sensor>
+        //    {
+        //        {s1.Id,  s1},
+        //        {s2.Id, s2 }
+        //    };
+        //}
+
 
         public IEnumerable<SensorData<double>> GetSnapshot()
         {
             var l = new List<SensorData<double>>();
-            l.Add(new SensorData<double>() { Data = 1.0, SensorID = _sensors.First().Key, Timestamp = DateTime.Now });
-            l.Add(new SensorData<double>() { Data = 2.0, SensorID = _sensors.Last().Key, Timestamp = DateTime.Now });
+            foreach (var sns in _sensors.Values)
+            {
+                l.Add(new SensorData<double>() { Data = RandomNum(), Sensor = sns, Timestamp = DateTime.Now });
+            }
 
             return l;
+        }
+
+        private double RandomNum()
+        {
+            return new Random((int)DateTime.Now.Ticks).Next(1, 99);
         }
     }
 }

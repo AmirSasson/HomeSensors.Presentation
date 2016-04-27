@@ -11,13 +11,14 @@ namespace HomeSensors.Presentation.Contracts
     public class Sensor
     {
         public Guid Id { get; set; }
-        public string Desciption { get; set; }
+        public SensorTypes SensorType { get; set; }
+        public string Description { get; set; }
         public SensorStatus Status { get; set; }
     }
 
     public class SensorData<T>
     {
-        public Guid SensorID { get; set; }
+        public Sensor Sensor { get; set; }
         public DateTime Timestamp { get; set; }
         public T Data { get; set; }
     }
@@ -28,5 +29,11 @@ namespace HomeSensors.Presentation.Contracts
     {
         Active,
         Offline
+    }
+    public enum SensorTypes
+    {
+        Humidity,
+        Temperatur
+
     }
 }

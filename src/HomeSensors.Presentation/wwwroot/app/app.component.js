@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router', './products/product-list.component', './products/product.service', './home/welcome.component', './products/product-detail.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router', './products/product-list.component', './products/product.service', './services/sensors.service', './home/welcome.component', './products/product-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, product_list_component_1, product_service_1, welcome_component_1, product_detail_component_1;
+    var core_1, http_1, router_1, product_list_component_1, product_service_1, sensors_service_1, welcome_component_1, product_detail_component_1;
     var AppComponent;
     return {
         setters:[
@@ -30,6 +30,9 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
             },
+            function (sensors_service_1_1) {
+                sensors_service_1 = sensors_service_1_1;
+            },
             function (welcome_component_1_1) {
                 welcome_component_1 = welcome_component_1_1;
             },
@@ -46,7 +49,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
                         selector: 'pm-app',
                         template: "\n    <div>\n        <nav class='navbar navbar-default'>\n            <div class='container-fluid'>\n                <a class='navbar-brand'>{{pageTitle}}</a>\n                <ul class='nav navbar-nav'>\n                    <li><a [routerLink]=\"['Welcome']\">Home</a></li>\n                    <li><a [routerLink]=\"['Products']\">Product List</a></li>\n                </ul>\n            </div>\n        </nav>\n        <div class='container'>\n            <router-outlet></router-outlet>\n        </div>\n     </div>\n     ",
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        providers: [product_service_1.ProductService,
+                        providers: [product_service_1.ProductService, sensors_service_1.SensorsService,
                             http_1.HTTP_PROVIDERS,
                             router_1.ROUTER_PROVIDERS]
                     }),

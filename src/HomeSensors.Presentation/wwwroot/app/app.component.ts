@@ -5,6 +5,7 @@ import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/route
 
 import { ProductListComponent } from './products/product-list.component';
 import { ProductService } from './products/product.service';
+import { SensorsService } from './services/sensors.service';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products/product-detail.component';
 
@@ -27,9 +28,9 @@ import { ProductDetailComponent } from './products/product-detail.component';
      </div>
      `,
     directives: [ROUTER_DIRECTIVES],
-    providers: [ProductService,
-                HTTP_PROVIDERS,
-                ROUTER_PROVIDERS]
+    providers: [ProductService, SensorsService,
+        HTTP_PROVIDERS,
+        ROUTER_PROVIDERS]
 })
 @RouteConfig([
     { path: '/welcome', name: 'Welcome', component: WelcomeComponent, useAsDefault: true },

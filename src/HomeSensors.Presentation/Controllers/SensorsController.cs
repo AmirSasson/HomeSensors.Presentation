@@ -10,12 +10,12 @@ using HomeSensors.Presentation.Contracts;
 namespace HomeSensors.Presentation.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class SensorsController : Controller
     {
         [FromServices]
         public ISensorsService _sensorService { get; set; }
 
-       
+
         // GET: api/values
         [HttpGet]
         [Produces(contentType: "application/json")]
@@ -23,6 +23,15 @@ namespace HomeSensors.Presentation.Controllers
         {
             return _sensorService.GetSnapshot();
         }
+
+        // GET: api/values
+        [HttpGet("api/[controller]/GetSensors")]
+        [Produces(contentType: "application/json")]
+        public IEnumerable<Sensor> GetSensors()
+        {
+            return null;
+        }
+
 
         // GET api/values/5
         [HttpGet("{id}")]
