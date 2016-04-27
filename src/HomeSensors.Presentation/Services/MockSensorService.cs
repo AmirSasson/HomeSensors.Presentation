@@ -10,6 +10,7 @@ namespace HomeSensors.Presentation.Services
     public class MockSensorService : Contracts.ISensorsService
     {
         Dictionary<Guid, Sensor> _sensors;
+        Random _rand = new Random((int)DateTime.Now.Ticks);
         public MockSensorService()
         {
             _sensors = new Dictionary<Guid, Sensor>();
@@ -41,7 +42,7 @@ namespace HomeSensors.Presentation.Services
 
         private double RandomNum()
         {
-            return new Random((int)DateTime.Now.Ticks).Next(1, 99);
+            return _rand.Next(1, 99);
         }
     }
 }

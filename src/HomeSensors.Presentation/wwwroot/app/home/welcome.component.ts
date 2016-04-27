@@ -3,7 +3,8 @@ import {Logger} from "angular2-logger/core";
 import {SensorsService} from '../services/sensors.service';
 
 @Component({
-    templateUrl: 'app/home/welcome.component.html'
+    templateUrl: 'app/home/welcome.component.html',
+    styleUrls: ['app/home/welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
     public pageTitle: string = 'Welcome';

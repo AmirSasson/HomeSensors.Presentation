@@ -4,11 +4,11 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="thumbnail col-sm-6 col-md-4" *ngFor="#item of sensorsData; #i = index">  
-                <div class="icon-{{item.sensor.sensorType}}"></div>            
+            <div class="thumbnail col-sm-6 col-md-4" *ngFor="#item of sensorsData; #i = index">
+                <img src="app/assets/images/icon-{{item.sensor.sensorType}}.png" alt="{{item.sensor.sensorType}}" class="img-thumbnail">
                 <div class="caption">
-                    <div class="h3">{{item.sensor.description}}</div>
-                    <p>{{item.data}}</p>
+                    <div class="h1"><span class="label label-{{item.sensor.status == 0 ? 'success' : 'danger'}}">{{item.sensor.description}}</span></div>
+                    <p>{{item.data | number}} </p>
                     <p>{{item.timestamp}}</p>
                 </div>
                 <!--<img src="./app/assets/images/logo.jpg"

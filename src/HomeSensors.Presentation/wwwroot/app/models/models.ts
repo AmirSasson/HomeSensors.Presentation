@@ -2,8 +2,8 @@
 
 export class SensorData {
     sensorID: string;
-    Timestamp: Date
-    Data: number
+    timestamp: Date
+    data: number
 }
 export class Sensor {
     id: string;

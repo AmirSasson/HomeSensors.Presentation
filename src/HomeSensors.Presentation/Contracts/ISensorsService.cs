@@ -27,8 +27,8 @@ namespace HomeSensors.Presentation.Contracts
 
     public enum SensorStatus
     {
-        Active,
-        Offline
+        Active = 0,
+        Offline = 1
     }
     public enum SensorTypes
     {
