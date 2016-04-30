@@ -1,6 +1,4 @@
-System.register([], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register([], function(exports_1) {
     var SensorData, Sensor;
     return {
         setters:[],
@@ -8,14 +6,21 @@ System.register([], function(exports_1, context_1) {
             SensorData = (function () {
                 function SensorData() {
                 }
+                Object.defineProperty(SensorData.prototype, "timestampDate", {
+                    get: function () {
+                        return 11;
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
                 return SensorData;
-            }());
+            })();
             exports_1("SensorData", SensorData);
             Sensor = (function () {
                 function Sensor() {
                 }
                 return Sensor;
-            }());
+            })();
             exports_1("Sensor", Sensor);
         }
     }

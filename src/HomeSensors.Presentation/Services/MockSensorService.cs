@@ -16,7 +16,7 @@ namespace HomeSensors.Presentation.Services
             _sensors = new Dictionary<Guid, Sensor>();
             for (int i = 0; i < 5; i++)
             {
-                var s = new Sensor() { Description = $"Sensor {i}", Id = Guid.NewGuid(), Status = SensorStatus.Active, SensorType = SensorTypes.Humidity };
+                var s = new Sensor() { Description = $"Sensor {i}", Id = Guid.NewGuid(), Status = SensorStatus.Active,  SensorType = SensorTypes.Humidity };
                 _sensors[s.Id] = s;
 
             }

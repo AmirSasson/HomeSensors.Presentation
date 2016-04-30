@@ -28,16 +28,29 @@ System.register(['angular2/core', "angular2-logger/core", '../services/sensors.s
                 function WelcomeComponent(_sensorsService, _logger) {
                     this._sensorsService = _sensorsService;
                     this._logger = _logger;
-                    this.pageTitle = 'Welcome';
+                    this.pageTitle = 'Dashboard';
                 }
                 WelcomeComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._sensorsService.getSnapshot()
                         .subscribe(function (data) { return _this.sensorsData = data; }, function (error) { return _this._logger.error(error); });
                 };
+                WelcomeComponent.prototype.getDate = function (ts) {
+                    return Date.parse(ts);
+                };
+                WelcomeComponent.prototype.iconByType = function (type) {
+                    switch (type) {
+                        case 1:
+                            return 'sun-o';
+                        case 0:
+                            return 'tint';
+                    }
+                    return 'adjust';
+                };
                 WelcomeComponent = __decorate([
                     core_1.Component({
-                        templateUrl: 'app/home/welcome.component.html'
+                        templateUrl: 'app/home/welcome.component.html',
+                        styleUrls: ['app/home/welcome.component.css']
                     }), 
                     __metadata('design:paramtypes', [sensors_service_1.SensorsService, core_2.Logger])
                 ], WelcomeComponent);

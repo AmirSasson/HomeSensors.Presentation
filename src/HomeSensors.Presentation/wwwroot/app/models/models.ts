@@ -2,10 +2,13 @@
 
 export class SensorData {
     sensorID: string;
-    timestamp: Date
-    data: number
+    timestamp: string;
+    data: number;
+    get timestampDate(): number {
+        return 11;
+    }
 }
 export class Sensor {
     id: string;
-    description: string;        
+    description: string;
 }

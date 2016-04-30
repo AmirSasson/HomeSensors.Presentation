@@ -48,7 +48,7 @@ namespace HomeSensors.Presentation
                 //await context.Response.WriteAsync("Hello World!");
                 await next();
 
-                if (context.Response.StatusCode == (int)System.Net.HttpStatusCode.NotFound)//supporting SPA map to root, the SPA client platform will handle the client routing on browser
+                if (context.Response.StatusCode == (int)System.Net.HttpStatusCode.NotFound && context.Request.Method == "GET")//supporting SPA map to root, the SPA client platform will handle the client routing on browser
                 {
                     context.Request.Path = "/index.html";
                     await next();

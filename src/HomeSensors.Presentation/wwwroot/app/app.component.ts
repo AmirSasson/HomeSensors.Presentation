@@ -1,3 +1,5 @@
+/// <reference path="../../node_modules/angular2/core.d.ts" />
+
 import { Component } from 'angular2/core';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import 'rxjs/Rx';   // Load all features
@@ -10,7 +12,7 @@ import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products/product-detail.component';
 
 @Component({
-    selector: 'pm-app',
+    selector: 'pm-app', 
     template: `
     <div>
         <nav class='navbar navbar-default'>
@@ -18,7 +20,7 @@ import { ProductDetailComponent } from './products/product-detail.component';
                 <a class='navbar-brand'>{{pageTitle}}</a>
                 <ul class='nav navbar-nav'>
                     <li><a [routerLink]="['Welcome']">Home</a></li>
-                    <li><a [routerLink]="['Products']">Product List</a></li>
+                    <li><a [routerLink]="['Products']">Sensors</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,6 +39,6 @@ import { ProductDetailComponent } from './products/product-detail.component';
     { path: '/products', name: 'Products', component: ProductListComponent },
     { path: '/product/:id', name: 'ProductDetail', component: ProductDetailComponent }
 ])
-export class AppComponent {
-    pageTitle: string = 'Acme Product Management';
+export class AppComponent { 
+    pageTitle: string = 'Home Sensors';
 }

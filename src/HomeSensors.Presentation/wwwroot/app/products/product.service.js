@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -37,7 +35,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                 };
                 ProductService.prototype.getProduct = function (id) {
                     return this.getProducts()
-                        .map(function (products) { return products.find(function (p) { return p.productId === id; }); });
+                        .map(function (products) { return products.filter(function (p) { return p.productId === id; })[0]; });
                 };
                 ProductService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure
@@ -50,7 +48,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                     __metadata('design:paramtypes', [http_1.Http])
                 ], ProductService);
                 return ProductService;
-            }());
+            })();
             exports_1("ProductService", ProductService);
         }
     }

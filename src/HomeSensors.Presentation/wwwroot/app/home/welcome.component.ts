@@ -7,7 +7,7 @@ import {SensorsService} from '../services/sensors.service';
     styleUrls: ['app/home/welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-    public pageTitle: string = 'Welcome';
+    public pageTitle: string = 'Dashboard';
     public sensorsData;
     constructor(private _sensorsService: SensorsService, private _logger: Logger) {
 
@@ -20,5 +20,19 @@ export class WelcomeComponent implements OnInit {
             data => this.sensorsData = data,
             error => this._logger.error(error));
     }
+    getDate(ts: string):number {
+        return Date.parse(ts);
+    }
+
+    iconByType(type: number): string {
+        switch (type) {
+            case 1:
+                return 'sun-o';
+            case 0:
+                return 'tint';
+        }
+        return 'adjust';
+    }
+
 
 }

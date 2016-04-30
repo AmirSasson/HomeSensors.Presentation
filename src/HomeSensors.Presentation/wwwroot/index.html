@@ -3,25 +3,25 @@
 
 <head lang="en">
     <base href="/">
-    <title>Acme Product Management</title>
+    <title>My Home Sensors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/1.0.8/css/sb-admin-2.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+    
     <!--link href="css/site.min.css" rel="stylesheet" /-->
     <link href="app/app.component.css" rel="stylesheet" />
 
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
-    <!--<script src="js/site.min.js"></script>-->
     <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
     <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    
+
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2-logger/bundles/angular2-logger.js"></script>
 
     <!-- Required for http -->
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
@@ -29,18 +29,20 @@
     <!-- Required for routing -->
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
 
+    <script src="node_modules/angular2-logger/bundles/angular2-logger.js"></script>
+
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
-        packages: {        
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/main')
-            .then(null, console.error.bind(console));
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/main')
+              .then(null, console.error.bind(console));
     </script>
 </head>
 

@@ -19,7 +19,7 @@ export class ProductService {
 
     getProduct(id: number): Observable<IProduct> {
         return this.getProducts()
-            .map((products: IProduct[]) => products.find(p => p.productId === id));
+           .map((products: IProduct[]) => products.filter(p => p.productId === id)[0]);
     }
 
     private handleError(error: Response) {
